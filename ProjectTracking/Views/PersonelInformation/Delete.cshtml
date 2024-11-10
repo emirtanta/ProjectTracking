@@ -1,0 +1,22 @@
+﻿@model ProjectTracking.Models.Entities.PersonnelInformation
+@{
+    ViewBag.Title = "Proje Bilgisi Silme Sayfası";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+
+<h3>@Model.Name @Model.Surname adlı kişiye ait bilgileri silmek istiyor musunuz?</h3>
+<div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-success" /> |
+            @Html.ActionLink("İptal", "Index", new {@class="btn btn-danger"})
+        </div>
+    }
+</div>
+
